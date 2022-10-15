@@ -1,0 +1,130 @@
+{% extends "loltest/base.html" %}
+
+{% block title %} {{player.player_name}} {% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-0 col-lg-2"></div>
+    <div class="infoname col-12 col-lg-8"><h1>{{player.player_name}}</h1> Level: {{player.level}}</div>
+    <div class="col-lg-2 col-12 text-center">
+        <form action="f0rmp4tht0h4ndl3upd4t3/" method="POST">
+            {% csrf_token %}
+                <input type="submit" class="btn btn-dark " value="{{text.Update}}" id="end" name="end">  
+        </form>
+        <p class="mt-2 text-danger">{% if player.update_date|date:'Y' != '2010' %}{{text.Lastupdate}} {{ player.update_date|date:'d.m.Y' }} {% else %} {{ text.Neverupdated }} {% endif %}</p>
+    </div>
+</div>
+<div class="row mb-5 ranking">
+    <h5 class="mb-5">{{text.Ranking}}</h5>
+        <table class="table table-secondary table-striped table-hover text-center">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Rank</th>
+                <th scope="col">Wins</th>
+                <th scope="col">Losses</th>
+                <th scope="col">Winrate</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% if ranks|length == 0 %}
+                <tr>
+                    <td>RANKED_SOLO_5x5</td>
+                    <td colspan="5">UNRANKED</td>
+                  </tr>
+                {% else %}
+                {% for rank in ranks %}
+              <tr>
+                <td>{{ rank.type }}</td>
+                <td>{{ rank.rank }} {{ rank.lp }}LP</td>
+                <td>{{ rank.wins }}</td>
+                <td>{{ rank.losses }}</td>
+                <td>{{ rank.winrate }} %</td>
+              </tr>
+              {% endfor %}
+              {% endif %}
+            </tbody>
+        </table>
+</div>
+
+<div class="row">
+    <div class="col-10 offset-1 col-lg-4 col-xl-3">
+        <h5 class="mb-4">{{text.Championmasteriespoints}}</h5>
+        <table class="table table-secondary table-striped table-hover text-center mb-5">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Champion</th>
+                <th scope="col">Points</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for maestry in maestries %}
+            <tr>
+                <td>{{forloop.counter}}.</td>
+                <td>{{ maestry.champ_name }}</td>
+                <td>{{ maestry.champ_points }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h5 class="mb-2">{{text.Stats}}</h5>
+        <table class="table table-secondary table-striped table-hover text-center">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">Mode</th>
+                <th scope="col">G</th>
+                <th scope="col">W</th>
+                <th scope="col">L</th>
+                <th scope="col">WR</th>
+                <th scope="col">KDA</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for key, value in stats.items %}
+                <tr>
+                <td>{{key}}</td>
+                {% for keyy, valuee in value.items %}    
+                <td>{{valuee}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-12 col-sm-10 offset-sm-1 offset-lg-1 offset-xl-2 col-lg-5">
+        <h5 class="mb-4">{{text.Last20games}}</h5>
+        <table class="table table-secondary table-striped table-hover text-center">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">Champion</th>
+                <th scope="col">K/D/A</th>
+                <th scope="col">Mode</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if games|length == 0 %}
+                <tr>
+                    <td colspan="4">{{text.DIDNTPLAYED}}</td>
+                  </tr>
+            {% else %}
+            {% for game in games %}
+            <tr {% if game.win == True %} class="table-success" {% else %} class="table-danger" {% endif %}>
+                <td>{{ game.champ }}</td>
+                <td>{{ game.kills }}/{{ game.deaths }}/{{ game.assists }}</td>
+                <td>{{ game.gamemode }}</td>
+                <td>{{ game.date }}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

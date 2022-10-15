@@ -1,0 +1,51 @@
+{% extends "loltest/base.html" %}
+
+{% block title %} LoLTest EU {% endblock %}
+
+
+{% block content %}
+<form action="f0rmp4tht0h4ndl3r3d1r3ct/" method="POST">
+    {% csrf_token %}
+    <div class="row mb-5">
+      <div class="d-inline offset-1 offset-md-2 offset-lg-3 col-4 col-md-3 col-lg2">
+        <label class="form-label" for="server">Server:</label><br/>
+        <select name="server" id="server" class="form-control">
+          <option value="eune">Europe Nordic East</option>
+          <option value="euw">Europe West</option>
+        </select>
+      </div>
+      <div class="d-inline col-4 col-md-3 col-lg2">
+        <label class="form-label" for="nick">Nickname:</label><br/>
+        <input type="text" id="nick" name="nick" class="form-control">
+      </div>
+      <div class="d-inline col-2">
+        <label class="form-label" for="end">&#129488;</label><br/>
+        <input type="submit" class="btn btn-dark " value="{{ text.Search }}" id="end" name="end">
+      </div>
+      
+    </div>
+</form>
+<div class="row">
+  {%if error %}
+  <p class="error">{{ error }}</p>
+  {% endif %}
+</div>
+<div class="row my-5">
+    <div class="rec d-inline offset-1 col-10 col-md-5 my-5">
+        <p>{{text.Recommended}}</p>
+        <ol>
+        {% for rec in recs %}
+            <li><a href="/{{rec.region}}/{{ rec.player_name }}/">{{ rec.player_name }}</a></li>
+        {% endfor %}
+        </ol>
+    </div>
+    <div class="vis d-inline offset-1 col-10 col-md-5 my-5">
+        <p>{{text.Mostsearched}}</p>
+        <ol>
+        {% for vi in vis %}
+            <li><a href="/{{vi.region}}/{{ vi.player_name }}/">{{ vi.player_name }}</a></li>
+        {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endblock %}

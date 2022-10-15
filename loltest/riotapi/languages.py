@@ -1,0 +1,41 @@
+PL = {
+    "Informationabout" : "Informacje o rangach w grach rankingowych, twoich ulubionych postaciach i statystyki z ostatnich 20 gier.",
+    "Recommended" : "Polecane",
+    "Mostsearched": "Najczęściej wyszukiwane",
+    "Search": "Wyszukaj",
+    "Update": "Zaktualizuj",
+    "Ranking": "Ranking",
+    "Championmasteriespoints": "Punkty maestrii postaci",
+    "Stats": "Statystyki",
+    "Last20games": "Ostatnie 20 gier",
+    "DIDNTPLAYED": "NIE ZAGRAŁ GRY W CIĄGU OSTATNICH LAT",
+    "Allrightsreserved": "Wszelkie prawa zastrzeżone",
+    "Lastupdate": "Ostatnia aktualizacja:",
+    "Neverupdated": 'To konto nie było jeszcze nigdy aktualizowane. Kliknij aktualizuj, żeby pozyskać dane.',
+    "Error404": 'Nie ma konta o takiej nazwie.',
+    "Error503": 'Serwer europe.api.riotgames.com nie nie odpowiada. Spróbuj ponownie za kilka sekund.' ,
+    "Error429": 'Liczba requestów z API została wykorzystana. Spróbuj ponownie za kilka minut.',
+    "Error403": 'Błędny klucz do API',
+    "ErrorMatch": 'Wpisz poprawną nazwę konta!!!!'
+}
+
+EN = {
+    "Informationabout" : "Information about your ranking points in ranked games, your favorite characters and statistics from the last 20 games.",
+    "Recommended" : "Recommended",
+    "Mostsearched": "Most searched",
+    "Search": "Search",
+    "Update": "Update",
+    "Ranking": "Ranking",
+    "Championmasteriespoints": "Champion masteries points",
+    "Stats": "Stats",
+    "Last20games": "Last 20 games",
+    "DIDNTPLAYED": "DIDN'T PLAYED A GAME IN LAST FEW YEARS",
+    "Allrightsreserved": "All rights reserved",
+    "Lastupdate": "Last update:",
+    "Neverupdated": 'This account has never been updated yet. Click update to get the data.',
+    "Error404": 'There is no account with that name.',
+    "Error503": 'The europe.api.riotgames.com server is not responding. Please try again in a few seconds.' ,
+    "Error429": 'The number of API requests has been used up. Please try again in a few minutes.',
+    "Error403": 'Expired API Key',
+    "ErrorMatch": 'Please enter a valid account name !!!!'
+}
