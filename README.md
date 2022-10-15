@@ -21,4 +21,4 @@ Player's profile:
 
 ![image](https://user-images.githubusercontent.com/84145031/195996294-9db48c10-eeb3-4cce-b9d6-e352501ebbfa.png)
 
-![image](https://user-images.githubusercontent.com/84145031/195996310-7da9afcf-74ed-4c23-890e-6f9acfb7020c.png)
+![image](https://user-images.githubusercontent.com/84145031/195996452-93d23224-44ff-497b-a52b-49407eacbdce.png)
